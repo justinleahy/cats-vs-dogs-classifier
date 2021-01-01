@@ -6,7 +6,8 @@ My current model produces an accuracy of ~84%.
   
 The dataset I used is from the [Kaggle Cats vs Dogs Redux: Kernel Edition](https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/) competition.  
 It consists of 25000 training images, 1/2 of them cats & 1/2 of them dogs.  
-  
+
+![plot-1.png](plot-1.png)  
 plot-1.png shows some of the photos that were in the dataset.  
   
 plot-2.png has been removed due to the data it in being incorrect from a bug in my code.  

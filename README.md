@@ -11,8 +11,9 @@ It consists of 25000 training images, 1/2 of them cats & 1/2 of them dogs.
 plot-1.png shows some of the photos that were in the dataset.  
   
 plot-2.png has been removed due to the data it in being incorrect from a bug in my code.  
-  
-plot-3.png is a chart showing the training accuracy vs validation accuracy as well as training loss vs validation loss. This data came from my original model.
+
+![plot-3.png](plot-3.png)  
+plot-3.png is a chart showing the training accuracy vs validation accuracy as well as training loss vs validation loss. This data came from my original model.  
 The way training accuarcy increases exponentially whereas validation accuracy plateaus indicates that the model is overfitting. This is result it the model having
 a difficult time generalizing on a new dataset.  
   
@@ -28,6 +29,7 @@ My original model consisted of these layers:
 - Dense 128 units  
 - Dense 2 units (equal to the number of classes, ie [cats, dogs])  
 
+![plot-4.png](plot-4.png)  
 plot-4.png shows my current models training accuracy vs validation accuracy & traing loss vs validation loss.  
 [Branch 1.0](https://github.com/justinleahy/cats-vs-dogs-classifier/blob/1.0/generateModel.py)  
 1.0 Model layers:  

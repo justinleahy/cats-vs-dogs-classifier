@@ -4,7 +4,7 @@ In this repository, I created an artificial intelligence to classify 250x250 pho
   
 My current model produces an accuracy of ~84%.  
   
-The dataset I used is the Kaggle Cats vs Dogs Redux: Kernel Edition dataset. https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/  
+The dataset I used is from the (Kaggle Cats vs Dogs Redux: Kernel Edition)[dataset](https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/) competition.  
 It consists of 25000 training images, 1/2 of them cats & 1/2 of them dogs.  
   
 plot-1.png shows some of the photos that were in the dataset.  
@@ -16,15 +16,22 @@ The way training accuarcy increases exponentially whereas validation accuracy pl
 a difficult time generalizing on a new dataset.  
   
 My original model consisted of these layers:  
+Rescaling photos so all color values range from [0,1] instead of [0,255]. As well as, resizing them to 250x250.  
 Conv2D with 16 filters  
 MaxPooling2D with 2x2 pool size and 2 stride  
 Conv2D with 32 filters  
 MaxPooling2D with 2x2 pool size and 2 stride  
 Conv2D with 64 filters  
 MaxPooling2D with 2x2 pool size and 2 stride  
+Flatten  
+Dense 128 units  
+Dense 2 units (equal to the number of classes, ie [cats, dogs])  
 
-plot-final.png shows my current models training accuracy vs validation accuracy & traing loss vs validation loss.  
-https://github.com/justinleahy/cats-vs-dogs-classifier/commit/65792f3ca67330553c1d4a901823e0240f1c3e1b model layers:  
+plot-4.png shows my current models training accuracy vs validation accuracy & traing loss vs validation loss.  
+[Branch 1.0](https://github.com/justinleahy/cats-vs-dogs-classifier/blob/1.0/generateModel.py)  
+1.0 Model layers:  
+Preforming data augmentation. Random horizontal flip, random rotation, and random zoom. This will help with the overfitting present in the last model.  
+Rescaling photos so all color values range from [0,1] instead of [0,255]. As well as, resizing them to 250x250.  
 Conv2D with 16 filters  
 MaxPooling2D with 2x2 pool size and 2 stride  
 Conv2D with 32 filters  
@@ -32,3 +39,6 @@ MaxPooling2D with 2x2 pool size and 2 stride
 Conv2D with 64 filters  
 MaxPooling2D with 2x2 pool size and 2 stride  
 Dropout 20%  
+Flatten  
+Dense 128 units  
+Dense 2 units (equal to the number of classes, ie [cats, dogs])  

@@ -1,4 +1,4 @@
-# cats-vs-dogs-classifier
+# Cats vs Dogs Classifier
   
 In this repository, I created an artificial intelligence to classify 250x250 photos of cats and dogs. All models were trained using TensorFlow 2.4.0 and 15 epochs.  
   
@@ -16,29 +16,29 @@ The way training accuarcy increases exponentially whereas validation accuracy pl
 a difficult time generalizing on a new dataset.  
   
 My original model consisted of these layers:  
-Rescaling photos so all color values range from [0,1] instead of [0,255]. As well as, resizing them to 250x250.  
-Conv2D with 16 filters  
-MaxPooling2D with 2x2 pool size and 2 stride  
-Conv2D with 32 filters  
-MaxPooling2D with 2x2 pool size and 2 stride  
-Conv2D with 64 filters  
-MaxPooling2D with 2x2 pool size and 2 stride  
-Flatten  
-Dense 128 units  
-Dense 2 units (equal to the number of classes, ie [cats, dogs])  
+- Rescaling photos so all color values range from [0,1] instead of [0,255]. As well as, resizing them to 250x250.  
+- Conv2D with 16 filters  
+- MaxPooling2D with 2x2 pool size and 2 stride  
+- Conv2D with 32 filters  
+- MaxPooling2D with 2x2 pool size and 2 stride  
+- Conv2D with 64 filters  
+- MaxPooling2D with 2x2 pool size and 2 stride  
+- Flatten  
+- Dense 128 units  
+- Dense 2 units (equal to the number of classes, ie [cats, dogs])  
 
 plot-4.png shows my current models training accuracy vs validation accuracy & traing loss vs validation loss.  
 [Branch 1.0](https://github.com/justinleahy/cats-vs-dogs-classifier/blob/1.0/generateModel.py)  
 1.0 Model layers:  
-Preforming data augmentation. Random horizontal flip, random rotation, and random zoom. This will help with the overfitting present in the last model.  
-Rescaling photos so all color values range from [0,1] instead of [0,255]. As well as, resizing them to 250x250.  
-Conv2D with 16 filters  
-MaxPooling2D with 2x2 pool size and 2 stride  
-Conv2D with 32 filters  
-MaxPooling2D with 2x2 pool size and 2 stride  
-Conv2D with 64 filters  
-MaxPooling2D with 2x2 pool size and 2 stride  
-Dropout 20%  
-Flatten  
-Dense 128 units  
-Dense 2 units (equal to the number of classes, ie [cats, dogs])  
+- Preforming data augmentation. Random horizontal flip, random rotation, and random zoom. This will help with the overfitting present in the last model.  
+- Rescaling photos so all color values range from [0,1] instead of [0,255]. As well as, resizing them to 250x250.  
+- Conv2D with 16 filters  
+- MaxPooling2D with 2x2 pool size and 2 stride  
+- Conv2D with 32 filters  
+- MaxPooling2D with 2x2 pool size and 2 stride  
+- Conv2D with 64 filters  
+- MaxPooling2D with 2x2 pool size and 2 stride  
+- Dropout 20%  
+- Flatten  
+- Dense 128 units  
+- Dense 2 units (equal to the number of classes, ie [cats, dogs])  

@@ -24,7 +24,7 @@ Conv2D with 64 filters
 MaxPooling2D with 2x2 pool size and 2 stride
 
 plot-final.png shows my current models training accuracy vs validation accuracy & traing loss vs validation loss.
-Current model layers:
+677a42d model layers:
 Conv2D with 16 filters
 MaxPooling2D with 2x2 pool size and 2 stride
 Conv2D with 32 filters

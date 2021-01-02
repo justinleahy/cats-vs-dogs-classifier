@@ -24,7 +24,7 @@ if __name__ == '__main__':
     cats = list(data_dir.glob('cat/*'))
     dogs = list(data_dir.glob('dog/*'))
 
-    batch_size = 16
+    batch_size = 32
     img_height = 224
     img_width = 224
 
@@ -70,8 +70,8 @@ if __name__ == '__main__':
                                                          input_shape=(img_height,
                                                                       img_width,
                                                                       3)),
-            layers.experimental.preprocessing.RandomRotation(0.2),
-            layers.experimental.preprocessing.RandomZoom(0.2)
+            layers.experimental.preprocessing.RandomRotation(0.3),
+            layers.experimental.preprocessing.RandomZoom(0.3)
         ]
     )
 

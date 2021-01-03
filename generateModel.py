@@ -1,10 +1,8 @@
 import matplotlib.pyplot as plt
-import numpy as np
 import tensorflow as tf
 import pathlib
 
 from tensorflow.keras import layers
-from tensorflow.keras.models import Sequential
 
 from tensorflow._api.v2.compat.v1 import ConfigProto
 from tensorflow._api.v2.compat.v1 import InteractiveSession
@@ -70,32 +68,35 @@ if __name__ == '__main__':
                                                          input_shape=(img_height,
                                                                       img_width,
                                                                       3)),
-            layers.experimental.preprocessing.RandomRotation(0.3),
-            layers.experimental.preprocessing.RandomZoom(0.3)
+            layers.experimental.preprocessing.RandomRotation(0.2),
+            layers.experimental.preprocessing.RandomZoom(0.2)
         ]
     )
 
     AUTOTUNE = tf.data.experimental.AUTOTUNE
 
-    train_ds = train_ds.cache().shuffle(750).prefetch(buffer_size=AUTOTUNE)
+    train_ds = train_ds.cache().shuffle(1000).prefetch(buffer_size=AUTOTUNE)
     val_ds = val_ds.cache().prefetch(buffer_size=AUTOTUNE)
 
-    augmented_train_ds = train_ds.map(lambda x, y: (data_augmentation(x), y))
-    augmented_val_ds = val_ds.map(lambda x, y: (data_augmentation(x), y))
+    train_ds = train_ds.map(lambda x, y: (data_augmentation(x), y))
+    val_ds = val_ds.map(lambda x, y: (data_augmentation(x), y))
 
     num_classes = 2
 
     # https://arxiv.org/abs/1409.1556
-    model = tf.keras.applications.VGG16(include_top=False, input_shape=(img_height, img_width, 3))
-    for layer in model.layers:
+    vgg16_application = tf.keras.applications.VGG16(include_top=False,
+                                                    input_shape=(img_height,
+                                                                 img_width,
+                                                                 3))
+    for layer in vgg16_application.layers:
         layer.trainable = False
 
-    dropout_layer = layers.Dropout(0.2)(model.layers[-1].output)
+    dropout_layer = layers.Dropout(0.2)(vgg16_application.layers[-1].output)
     flat_layer = layers.Flatten()(dropout_layer)
     class_layer = layers.Dense(128, activation='relu', kernel_initializer='he_uniform')(flat_layer)
     output = layers.Dense(num_classes, activation='sigmoid')(class_layer)
 
-    model = tf.keras.models.Model(inputs=model.inputs, outputs=output)
+    model = tf.keras.models.Model(inputs=vgg16_application.inputs, outputs=output)
 
     model.compile(optimizer='adam',
                   loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
@@ -105,8 +106,8 @@ if __name__ == '__main__':
 
     epochs = 15
     history = model.fit(
-        augmented_train_ds,
-        validation_data=augmented_val_ds,
+        train_ds,
+        validation_data=val_ds,
         epochs=epochs
     )
 

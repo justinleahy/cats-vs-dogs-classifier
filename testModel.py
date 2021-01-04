@@ -15,8 +15,8 @@ if __name__ == '__main__':
     config.gpu_options.allow_growth = True
     session = InteractiveSession(config=config)
 
-    img_height = 250
-    img_width = 250
+    img_height = 224
+    img_width = 224
     images = 12500
 
     model = tf.keras.models.load_model('models/sequential-model')

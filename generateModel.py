@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 import tensorflow as tf
+import numpy as np
 import pathlib
+import csv
 
 from tensorflow.keras import layers
 
@@ -64,6 +66,10 @@ if __name__ == '__main__':
 
     data_augmentation = tf.keras.Sequential(
         [
+            layers.experimental.preprocessing.Rescaling(1. / 255,
+                                                        input_shape=(img_height,
+                                                                     img_width,
+                                                                     3)),
             layers.experimental.preprocessing.RandomFlip("horizontal",
                                                          input_shape=(img_height,
                                                                       img_width,

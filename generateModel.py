@@ -110,7 +110,7 @@ if __name__ == '__main__':
 
     model.summary()
 
-    epochs = 15
+    epochs = 50
     history = model.fit(
         train_ds,
         validation_data=val_ds,

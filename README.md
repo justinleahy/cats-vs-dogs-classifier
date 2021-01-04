@@ -8,7 +8,7 @@ It consists of 25000 training images, 1/2 of them cats & 1/2 of them dogs.
 
 ## Models + Plots  
 ![plot-1.png](plot-1.png)  
-plot-1.png shows some photos that were in the dataset.  
+plot-1.png shows some photos that are in the dataset.  
 plot-2.png has been removed due to the data it in being incorrect from a bug in my code.  
 ![plot-3.png](plot-3.png)  
 plot-3.png is a chart showing the training accuracy vs validation accuracy as well as training loss vs validation loss. This data came from my original model.  
@@ -60,6 +60,9 @@ The photos RGB values are normalized to make them range from [0,1] instead of [0
 ![plot-9.png](plot-9.png)
 plot-5.png is where my model began for this branch. I was able to minimize the overfitting on training dataset down to what is shown in plot-9.png
 Some other models I generated in this time are also shown in plot-7.png and plot-8.png.
+
+My final model was produced using a length of 50 epochs. Previous models can be found in their respective branches.
+![plot-10.png](plot-10.png)
 
 ## Computing Machine
 CPU: AMD Ryzen 9 5900X  
